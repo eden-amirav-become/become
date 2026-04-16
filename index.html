@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Loan Quiz — Become</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+  <div class="progress-wrap"><div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div></div>
+
+  <!-- STEP 0: Welcome -->
+  <div class="step active" id="step-0">
+    <div class="header">
+      <div class="header-title">Find Your Perfect Business Loan</div>
+      <div class="header-sub">Answer a few quick questions to get matched</div>
+    </div>
+    <div class="content">
+      <div class="welcome">
+        <div class="welcome-icon">
+          <svg width="36" height="36" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h2>Get matched with your best loan offer in 60 seconds</h2>
+        <p>We compare 100+ lenders to find you the lowest rates and best terms for your business.</p>
+        <div class="welcome-features">
+          <div class="welcome-feat">
+            <div class="welcome-feat-icon">
+              <svg width="16" height="16" fill="none" stroke="#7C3AED" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <span>No credit impact</span>
+          </div>
+          <div class="welcome-feat">
+            <div class="welcome-feat-icon">
+              <svg width="16" height="16" fill="none" stroke="#7C3AED" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <span>Takes 60 seconds</span>
+          </div>
+          <div class="welcome-feat">
+            <div class="welcome-feat-icon">
+              <svg width="16" height="16" fill="none" stroke="#7C3AED" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            </div>
+            <span>100% free</span>
+          </div>
+        </div>
+        <button class="cta-btn" onclick="goToStep(1)">
+          Get Started
+          <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 1: Funding Amount -->
+  <div class="step" id="step-1">
+    <div class="header">
+      <div class="header-title">How much funding do you need?</div>
+      <div class="header-sub">Step 1 of 5</div>
+    </div>
+    <div class="content">
+      <div class="step-content">
+        <button class="back-btn" onclick="goToStep(0)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <div class="slider-wrap">
+          <div class="slider-amount" id="sliderAmount">$50,000</div>
+          <div style="font-size:13px;color:#6b7280;margin-bottom:8px;">Drag to select your desired amount</div>
+          <input type="range" id="fundingSlider" min="5000" max="500000" step="5000" value="50000" oninput="updateSlider(this.value)">
+          <div class="slider-range-labels"><span>$5,000</span><span>$500,000</span></div>
+        </div>
+        <button class="cta-btn" onclick="goToStep(2)">
+          Continue
+          <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2: Time in Business -->
+  <div class="step" id="step-2">
+    <div class="header">
+      <div class="header-title">How long have you been in business?</div>
+      <div class="header-sub">Step 2 of 5</div>
+    </div>
+    <div class="content">
+      <div class="step-content">
+        <button class="back-btn" onclick="goToStep(1)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <div class="option-grid" id="timeOptions"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3: Monthly Revenue -->
+  <div class="step" id="step-3">
+    <div class="header">
+      <div class="header-title">What's your average monthly revenue?</div>
+      <div class="header-sub">Step 3 of 5</div>
+    </div>
+    <div class="content">
+      <div class="step-content">
+        <button class="back-btn" onclick="goToStep(2)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <div class="option-grid" id="revenueOptions"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Credit Score -->
+  <div class="step" id="step-4">
+    <div class="header">
+      <div class="header-title">What's your personal credit score?</div>
+      <div class="header-sub">Step 4 of 5</div>
+    </div>
+    <div class="content">
+      <div class="step-content">
+        <button class="back-btn" onclick="goToStep(3)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <div class="option-grid" id="creditOptions"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5: Contact Form -->
+  <div class="step" id="step-5">
+    <div class="header">
+      <div class="header-title">Almost there! Tell us about you</div>
+      <div class="header-sub">Step 5 of 5</div>
+    </div>
+    <div class="content">
+      <div class="step-content">
+        <button class="back-btn" onclick="goToStep(4)">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Back
+        </button>
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input class="form-input" id="fName" type="text" placeholder="John Smith">
+          <div class="form-error">Please enter your name</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" id="fEmail" type="email" placeholder="john@company.com">
+          <div class="form-error">Please enter a valid email</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" id="fPhone" type="tel" placeholder="(555) 123-4567">
+          <div class="form-error">Please enter your phone number</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Business Name</label>
+          <input class="form-input" id="fBiz" type="text" placeholder="Acme Corp">
+          <div class="form-error">Please enter your business name</div>
+        </div>
+        <button class="cta-btn" onclick="submitForm()">
+          See My Loan Offers
+          <svg width="16" height="16" fill="none" stroke="white" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6: Analyzing -->
+  <div class="step" id="step-6">
+    <div class="header">
+      <div class="header-title">Analyzing your profile...</div>
+      <div class="header-sub">This only takes a moment</div>
+    </div>
+    <div class="content">
+      <div class="analyzing">
+        <div class="analyzing-spinner"></div>
+        <h3>Finding your best matches</h3>
+        <p>Scanning 100+ lenders...</p>
+        <div class="analyzing-steps">
+          <div class="analyzing-step" id="a-step-1"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> Checking eligibility...</div>
+          <div class="analyzing-step" id="a-step-2"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> Comparing rates...</div>
+          <div class="analyzing-step" id="a-step-3"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/></svg> Ranking offers...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 7: Results -->
+  <div class="step" id="step-7">
+    <div class="results-header">
+      <div class="header-title" id="resultsTitle">Great news! You're pre-qualified!</div>
+      <div class="header-sub">We found 3 loan offers matched to your profile</div>
+    </div>
+    <div class="content" id="resultsContent">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
