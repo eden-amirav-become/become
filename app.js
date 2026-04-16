@@ -28,9 +28,9 @@ var creditOptions = [
 
 // === INIT ===
 document.addEventListener('DOMContentLoaded', function() {
-  renderOptions('timeOptions', timeOptions, 'time', 2);
-  renderOptions('revenueOptions', revenueOptions, 'revenue', 3);
-  renderOptions('creditOptions', creditOptions, 'credit', 4);
+  renderOptions('timeOptions', timeOptions, 'time', 3);
+  renderOptions('revenueOptions', revenueOptions, 'revenue', 4);
+  renderOptions('creditOptions', creditOptions, 'credit', 5);
   updateProgress();
 });
 
